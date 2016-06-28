@@ -9,3 +9,9 @@ class Golfer(models.Model):
     handicap = models.IntegerField(blank=True, null=True)
     def __str__(self):
         return self.name
+
+class League(models.Model):
+    name = models.CharField(max_length=60)
+    members = models.ManyToManyField(Golfer)
+    def __str__(self):
+        return self.name
